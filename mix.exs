@@ -4,7 +4,7 @@ defmodule Manticoresearch.Mixfile do
   def project do
     [app: :manticoresearch,
      description: "Manticore Search client",
-     version: "1.0.0",
+     version: "1.0.1",
      elixir: "~> 1.6",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -13,6 +13,7 @@ defmodule Manticoresearch.Mixfile do
   end
 
   def application do
+    # Specify extra applications you'll use from Erlang/Elixir
     [extra_applications: [:logger]]
   end
 
@@ -23,6 +24,7 @@ defmodule Manticoresearch.Mixfile do
       {:ex_doc, "~> 0.22", only: :dev, runtime: false}
     ]
   end
+  
   defp package() do
     [
       files: ~w(lib  mix.exs README* config),
@@ -30,4 +32,5 @@ defmodule Manticoresearch.Mixfile do
       links: %{"GitHub" => "https://github.com/manticoresoftware/manticoresearch-elixir"}
     ]
   end
+  
 end

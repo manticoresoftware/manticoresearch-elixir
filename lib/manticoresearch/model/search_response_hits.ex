@@ -8,12 +8,14 @@ defmodule Manticoresearch.Model.SearchResponseHits do
   @derive [Poison.Encoder]
   defstruct [
     :"total",
-    :"hits"
+    :"hits",
+    :"aggregations"
   ]
 
   @type t :: %__MODULE__{
     :"total" => integer() | nil,
-    :"hits" => [Map] | nil
+    :"hits" => [Map] | nil,
+    :"aggregations" => [Map] | nil
   }
 end
 

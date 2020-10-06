@@ -20,5 +20,4 @@ def deps do
 end
 ```
 
-
 Documentation available at [HexDocs](https://hexdocs.pm/manticoresearch).
