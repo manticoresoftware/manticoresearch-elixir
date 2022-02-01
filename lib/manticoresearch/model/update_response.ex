@@ -12,11 +12,17 @@ defmodule Manticoresearch.Model.UpdateResponse do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"_index":"updated":"_id":"result"
+    :"_index",
+    :"updated",
+    :"_id",
+    :"result"
   ]
 
   @type t :: %__MODULE__{
-    :"_index" => String.t | nil:"updated" => integer() | nil:"_id" => integer() | nil:"result" => String.t | nil
+    :"_index" => String.t | nil,
+    :"updated" => integer() | nil,
+    :"_id" => integer() | nil,
+    :"result" => String.t | nil
   }
 end
 

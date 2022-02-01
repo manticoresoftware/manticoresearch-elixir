@@ -12,11 +12,17 @@ defmodule Manticoresearch.Model.DeleteResponse do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"_index":"deleted":"_id":"result"
+    :"_index",
+    :"deleted",
+    :"_id",
+    :"result"
   ]
 
   @type t :: %__MODULE__{
-    :"_index" => String.t | nil:"deleted" => integer() | nil:"_id" => integer() | nil:"result" => String.t | nil
+    :"_index" => String.t | nil,
+    :"deleted" => integer() | nil,
+    :"_id" => integer() | nil,
+    :"result" => String.t | nil
   }
 end
 

@@ -12,11 +12,17 @@ defmodule Manticoresearch.Model.UpdateDocumentRequest do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"index":"doc":"id":"query"
+    :"index",
+    :"doc",
+    :"id",
+    :"query"
   ]
 
   @type t :: %__MODULE__{
-    :"index" => String.t:"doc" => %{optional(String.t) => map()}:"id" => integer() | nil:"query" => %{optional(String.t) => map()} | nil
+    :"index" => String.t,
+    :"doc" => %{optional(String.t) => map()},
+    :"id" => integer() | nil,
+    :"query" => %{optional(String.t) => map()} | nil
   }
 end
 

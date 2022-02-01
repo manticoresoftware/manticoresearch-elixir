@@ -12,11 +12,17 @@ defmodule Manticoresearch.Model.DeleteDocumentRequest do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"index":"cluster":"id":"query"
+    :"index",
+    :"cluster",
+    :"id",
+    :"query"
   ]
 
   @type t :: %__MODULE__{
-    :"index" => String.t:"cluster" => String.t | nil:"id" => integer() | nil:"query" => map() | nil
+    :"index" => String.t,
+    :"cluster" => String.t | nil,
+    :"id" => integer() | nil,
+    :"query" => map() | nil
   }
 end
 

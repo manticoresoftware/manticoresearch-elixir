@@ -4,7 +4,7 @@ defmodule Manticoresearch.Mixfile do
   def project do
     [app: :manticoresearch,
      description: "Manticore Search client",
-     version: "1.0.1",
+     version: "1.0.2",
      elixir: "~> 1.6",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,

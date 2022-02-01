@@ -12,11 +12,21 @@ defmodule Manticoresearch.Model.SearchResponse do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"took":"timed_out":"aggregations":"hits":"profile":"warning"
+    :"took",
+    :"timed_out",
+    :"aggregations",
+    :"hits",
+    :"profile",
+    :"warning"
   ]
 
   @type t :: %__MODULE__{
-    :"took" => integer() | nil:"timed_out" => boolean() | nil:"aggregations" => %{optional(String.t) => map()} | nil:"hits" => Manticoresearch.Model.SearchResponseHits.t | nil:"profile" => map() | nil:"warning" => %{optional(String.t) => map()} | nil
+    :"took" => integer() | nil,
+    :"timed_out" => boolean() | nil,
+    :"aggregations" => %{optional(String.t) => map()} | nil,
+    :"hits" => Manticoresearch.Model.SearchResponseHits.t | nil,
+    :"profile" => map() | nil,
+    :"warning" => %{optional(String.t) => map()} | nil
   }
 end
 

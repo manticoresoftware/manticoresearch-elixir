@@ -12,11 +12,17 @@ defmodule Manticoresearch.Model.InsertDocumentRequest do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"index":"cluster":"id":"doc"
+    :"index",
+    :"cluster",
+    :"id",
+    :"doc"
   ]
 
   @type t :: %__MODULE__{
-    :"index" => String.t:"cluster" => String.t | nil:"id" => integer() | nil:"doc" => %{optional(String.t) => map()}
+    :"index" => String.t,
+    :"cluster" => String.t | nil,
+    :"id" => integer() | nil,
+    :"doc" => %{optional(String.t) => map()}
   }
 end
 

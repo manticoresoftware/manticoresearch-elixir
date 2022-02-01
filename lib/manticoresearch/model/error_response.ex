@@ -12,11 +12,13 @@ defmodule Manticoresearch.Model.ErrorResponse do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"error":"status"
+    :"error",
+    :"status"
   ]
 
   @type t :: %__MODULE__{
-    :"error" => %{optional(String.t) => map()}:"status" => integer()
+    :"error" => %{optional(String.t) => map()},
+    :"status" => integer()
   }
 end
 

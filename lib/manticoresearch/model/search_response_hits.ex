@@ -12,11 +12,15 @@ defmodule Manticoresearch.Model.SearchResponseHits do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"max_score":"total":"hits"
+    :"max_score",
+    :"total",
+    :"hits"
   ]
 
   @type t :: %__MODULE__{
-    :"max_score" => integer() | nil:"total" => integer() | nil:"hits" => [map()] | nil
+    :"max_score" => integer() | nil,
+    :"total" => integer() | nil,
+    :"hits" => [map()] | nil
   }
 end
 
