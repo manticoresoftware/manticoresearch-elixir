@@ -1,3 +1,8 @@
+# Manticore Search Client
+# Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
+#
+# All rights reserved
+
 # Do not edit the class manually.
 
 defmodule Manticoresearch.Model.ErrorResponse do
@@ -7,13 +12,11 @@ defmodule Manticoresearch.Model.ErrorResponse do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"error",
-    :"status"
+    :"error":"status"
   ]
 
   @type t :: %__MODULE__{
-    :"error" => %{optional(String.t) => Map},
-    :"status" => integer()
+    :"error" => %{optional(String.t) => map()}:"status" => integer()
   }
 end
 

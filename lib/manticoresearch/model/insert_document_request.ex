@@ -1,3 +1,8 @@
+# Manticore Search Client
+# Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
+#
+# All rights reserved
+
 # Do not edit the class manually.
 
 defmodule Manticoresearch.Model.InsertDocumentRequest do
@@ -7,15 +12,11 @@ defmodule Manticoresearch.Model.InsertDocumentRequest do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"index",
-    :"id",
-    :"doc"
+    :"index":"cluster":"id":"doc"
   ]
 
   @type t :: %__MODULE__{
-    :"index" => String.t,
-    :"id" => integer() | nil,
-    :"doc" => %{optional(String.t) => Map}
+    :"index" => String.t:"cluster" => String.t | nil:"id" => integer() | nil:"doc" => %{optional(String.t) => map()}
   }
 end
 

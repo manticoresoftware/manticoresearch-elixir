@@ -1,3 +1,8 @@
+# Manticore Search Client
+# Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
+#
+# All rights reserved
+
 # Do not edit the class manually.
 
 defmodule Manticoresearch.Model.BulkResponse do
@@ -7,13 +12,11 @@ defmodule Manticoresearch.Model.BulkResponse do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"items",
-    :"error"
+    :"items":"error"
   ]
 
   @type t :: %__MODULE__{
-    :"items" => Map | nil,
-    :"error" => boolean() | nil
+    :"items" => map() | nil:"error" => boolean() | nil
   }
 end
 

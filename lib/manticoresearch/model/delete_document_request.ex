@@ -1,3 +1,8 @@
+# Manticore Search Client
+# Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
+#
+# All rights reserved
+
 # Do not edit the class manually.
 
 defmodule Manticoresearch.Model.DeleteDocumentRequest do
@@ -7,15 +12,11 @@ defmodule Manticoresearch.Model.DeleteDocumentRequest do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"index",
-    :"id",
-    :"query"
+    :"index":"cluster":"id":"query"
   ]
 
   @type t :: %__MODULE__{
-    :"index" => String.t,
-    :"id" => integer() | nil,
-    :"query" => Map | nil
+    :"index" => String.t:"cluster" => String.t | nil:"id" => integer() | nil:"query" => map() | nil
   }
 end
 

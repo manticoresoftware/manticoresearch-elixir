@@ -1,3 +1,8 @@
+# Manticore Search Client
+# Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
+#
+# All rights reserved
+
 # Do not edit the class manually.
 
 defmodule Manticoresearch.Model.DeleteResponse do
@@ -7,17 +12,11 @@ defmodule Manticoresearch.Model.DeleteResponse do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"_index",
-    :"deleted",
-    :"_id",
-    :"result"
+    :"_index":"deleted":"_id":"result"
   ]
 
   @type t :: %__MODULE__{
-    :"_index" => String.t | nil,
-    :"deleted" => integer() | nil,
-    :"_id" => integer() | nil,
-    :"result" => String.t | nil
+    :"_index" => String.t | nil:"deleted" => integer() | nil:"_id" => integer() | nil:"result" => String.t | nil
   }
 end
 

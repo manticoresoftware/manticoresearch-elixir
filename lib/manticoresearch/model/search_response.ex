@@ -1,3 +1,8 @@
+# Manticore Search Client
+# Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
+#
+# All rights reserved
+
 # Do not edit the class manually.
 
 defmodule Manticoresearch.Model.SearchResponse do
@@ -7,17 +12,11 @@ defmodule Manticoresearch.Model.SearchResponse do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"took",
-    :"timed_out",
-    :"hits",
-    :"profile"
+    :"took":"timed_out":"aggregations":"hits":"profile":"warning"
   ]
 
   @type t :: %__MODULE__{
-    :"took" => integer() | nil,
-    :"timed_out" => boolean() | nil,
-    :"hits" => SearchResponseHits | nil,
-    :"profile" => Map | nil
+    :"took" => integer() | nil:"timed_out" => boolean() | nil:"aggregations" => %{optional(String.t) => map()} | nil:"hits" => Manticoresearch.Model.SearchResponseHits.t | nil:"profile" => map() | nil:"warning" => %{optional(String.t) => map()} | nil
   }
 end
 
@@ -25,7 +24,7 @@ defimpl Poison.Decoder, for: Manticoresearch.Model.SearchResponse do
   import Manticoresearch.Deserializer
   def decode(value, options) do
     value
-    |> deserialize(:"hits", :struct, Manticoresearch.Model.SearchResponseHits, options)
+    |> deserialize(:"hits", :struct, Manticoresearch.Model.Manticoresearch.Model.SearchResponseHits.t, options)
   end
 end
 

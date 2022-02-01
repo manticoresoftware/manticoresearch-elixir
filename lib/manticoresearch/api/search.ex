@@ -1,3 +1,8 @@
+# Manticore Search Client
+# Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
+#
+# All rights reserved
+
 # Do not edit the class manually.
 
 defmodule Manticoresearch.Api.Search do
@@ -11,7 +16,7 @@ defmodule Manticoresearch.Api.Search do
 
   @doc """
   Perform reverse search on a percolate index
-  Performs a percolate search.  This method must be used only on percolate indexes.  Expects two paramenters: the index name and an object with array of documents to be tested. An example of the documents object:    ```   {\"query\":{\"percolate\":{\"document\":{\"content\":\"sample content\"}}}}   ```  Responds with an object with matched stored queries:     ```   {'timed_out':false,'hits':{'total':2,'max_score':1,'hits':[{'_index':'idx_pq_1','_type':'doc','_id':'2','_score':'1','_source':{'query':{'match':{'title':'some'},}}},{'_index':'idx_pq_1','_type':'doc','_id':'5','_score':'1','_source':{'query':{'ql':'some | none'}}}]}}   ``` 
+  Performs a percolate search.  This method must be used only on percolate indexes.  Expects two parameters: the index name and an object with array of documents to be tested. An example of the documents object:    ```   {\"query\":{\"percolate\":{\"document\":{\"content\":\"sample content\"}}}}   ```  Responds with an object with matched stored queries:     ```   {'timed_out':false,'hits':{'total':2,'max_score':1,'hits':[{'_index':'idx_pq_1','_type':'doc','_id':'2','_score':'1','_source':{'query':{'match':{'title':'some'},}}},{'_index':'idx_pq_1','_type':'doc','_id':'5','_score':'1','_source':{'query':{'ql':'some | none'}}}]}}   ``` 
 
   ## Parameters
 
@@ -21,10 +26,10 @@ defmodule Manticoresearch.Api.Search do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %Manticoresearch.Model.SearchResponse{}} on success
+  {:ok, %Manticoresearch.Model.Manticoresearch.Model.SearchResponse.t{}} on success
   {:error, info} on failure
   """
-  @spec percolate(Tesla.Env.client, String.t, Manticoresearch.Model.PercolateRequest.t, keyword()) :: {:ok, Manticoresearch.Model.SearchResponse.t} | {:error, Tesla.Env.t}
+  @spec percolate(Tesla.Env.client, String.t, Manticoresearch.Model.PercolateRequest.t, keyword()) :: {:ok, Manticoresearch.Model.SearchResponse.t} | {:ok, Manticoresearch.Model.ErrorResponse.t} | {:error, Tesla.Env.t}
   def percolate(connection, index, percolate_request, _opts \\ []) do
     %{}
     |> method(:post)
@@ -33,7 +38,7 @@ defmodule Manticoresearch.Api.Search do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %Manticoresearch.Model.SearchResponse{}},
+      { 200, %Manticoresearch.Model.SearchResponse{}}
       { :default, %Manticoresearch.Model.ErrorResponse{}}
     ])
   end
@@ -49,10 +54,10 @@ defmodule Manticoresearch.Api.Search do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %Manticoresearch.Model.SearchResponse{}} on success
+  {:ok, %Manticoresearch.Model.Manticoresearch.Model.SearchResponse.t{}} on success
   {:error, info} on failure
   """
-  @spec search(Tesla.Env.client, Manticoresearch.Model.SearchRequest.t, keyword()) :: {:ok, Manticoresearch.Model.SearchResponse.t} | {:error, Tesla.Env.t}
+  @spec search(Tesla.Env.client, Manticoresearch.Model.SearchRequest.t, keyword()) :: {:ok, Manticoresearch.Model.SearchResponse.t} | {:ok, Manticoresearch.Model.ErrorResponse.t} | {:error, Tesla.Env.t}
   def search(connection, search_request, _opts \\ []) do
     %{}
     |> method(:post)
@@ -61,7 +66,7 @@ defmodule Manticoresearch.Api.Search do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %Manticoresearch.Model.SearchResponse{}},
+      { 200, %Manticoresearch.Model.SearchResponse{}}
       { :default, %Manticoresearch.Model.ErrorResponse{}}
     ])
   end

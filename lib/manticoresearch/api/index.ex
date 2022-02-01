@@ -1,3 +1,8 @@
+# Manticore Search Client
+# Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
+#
+# All rights reserved
+
 # Do not edit the class manually.
 
 defmodule Manticoresearch.Api.Index do
@@ -20,10 +25,10 @@ defmodule Manticoresearch.Api.Index do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %Manticoresearch.Model.BulkResponse{}} on success
+  {:ok, %Manticoresearch.Model.Manticoresearch.Model.BulkResponse.t{}} on success
   {:error, info} on failure
   """
-  @spec bulk(Tesla.Env.client, String.t, keyword()) :: {:ok, Manticoresearch.Model.BulkResponse.t} | {:error, Tesla.Env.t}
+  @spec bulk(Tesla.Env.client, String.t, keyword()) :: {:ok, Manticoresearch.Model.ErrorResponse.t} | {:ok, Manticoresearch.Model.BulkResponse.t} | {:error, Tesla.Env.t}
   def bulk(connection, body, _opts \\ []) do
     %{}
     |> method(:post)
@@ -32,7 +37,7 @@ defmodule Manticoresearch.Api.Index do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %Manticoresearch.Model.BulkResponse{}},
+      { 200, %Manticoresearch.Model.BulkResponse{}}
       { :default, %Manticoresearch.Model.ErrorResponse{}}
     ])
   end
@@ -48,10 +53,10 @@ defmodule Manticoresearch.Api.Index do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %Manticoresearch.Model.DeleteResponse{}} on success
+  {:ok, %Manticoresearch.Model.Manticoresearch.Model.DeleteResponse.t{}} on success
   {:error, info} on failure
   """
-  @spec delete(Tesla.Env.client, Manticoresearch.Model.DeleteDocumentRequest.t, keyword()) :: {:ok, Manticoresearch.Model.DeleteResponse.t} | {:error, Tesla.Env.t}
+  @spec delete(Tesla.Env.client, Manticoresearch.Model.DeleteDocumentRequest.t, keyword()) :: {:ok, Manticoresearch.Model.DeleteResponse.t} | {:ok, Manticoresearch.Model.ErrorResponse.t} | {:error, Tesla.Env.t}
   def delete(connection, delete_document_request, _opts \\ []) do
     %{}
     |> method(:post)
@@ -60,7 +65,7 @@ defmodule Manticoresearch.Api.Index do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %Manticoresearch.Model.DeleteResponse{}},
+      { 200, %Manticoresearch.Model.DeleteResponse{}}
       { :default, %Manticoresearch.Model.ErrorResponse{}}
     ])
   end
@@ -76,10 +81,10 @@ defmodule Manticoresearch.Api.Index do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %Manticoresearch.Model.SuccessResponse{}} on success
+  {:ok, %Manticoresearch.Model.Manticoresearch.Model.SuccessResponse.t{}} on success
   {:error, info} on failure
   """
-  @spec insert(Tesla.Env.client, Manticoresearch.Model.InsertDocumentRequest.t, keyword()) :: {:ok, Manticoresearch.Model.SuccessResponse.t} | {:error, Tesla.Env.t}
+  @spec insert(Tesla.Env.client, Manticoresearch.Model.InsertDocumentRequest.t, keyword()) :: {:ok, Manticoresearch.Model.ErrorResponse.t} | {:ok, Manticoresearch.Model.SuccessResponse.t} | {:error, Tesla.Env.t}
   def insert(connection, insert_document_request, _opts \\ []) do
     %{}
     |> method(:post)
@@ -88,7 +93,7 @@ defmodule Manticoresearch.Api.Index do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %Manticoresearch.Model.SuccessResponse{}},
+      { 200, %Manticoresearch.Model.SuccessResponse{}}
       { :default, %Manticoresearch.Model.ErrorResponse{}}
     ])
   end
@@ -104,10 +109,10 @@ defmodule Manticoresearch.Api.Index do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %Manticoresearch.Model.SuccessResponse{}} on success
+  {:ok, %Manticoresearch.Model.Manticoresearch.Model.SuccessResponse.t{}} on success
   {:error, info} on failure
   """
-  @spec replace(Tesla.Env.client, Manticoresearch.Model.InsertDocumentRequest.t, keyword()) :: {:ok, Manticoresearch.Model.SuccessResponse.t} | {:error, Tesla.Env.t}
+  @spec replace(Tesla.Env.client, Manticoresearch.Model.InsertDocumentRequest.t, keyword()) :: {:ok, Manticoresearch.Model.ErrorResponse.t} | {:ok, Manticoresearch.Model.SuccessResponse.t} | {:error, Tesla.Env.t}
   def replace(connection, insert_document_request, _opts \\ []) do
     %{}
     |> method(:post)
@@ -116,7 +121,7 @@ defmodule Manticoresearch.Api.Index do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %Manticoresearch.Model.SuccessResponse{}},
+      { 200, %Manticoresearch.Model.SuccessResponse{}}
       { :default, %Manticoresearch.Model.ErrorResponse{}}
     ])
   end
@@ -132,10 +137,10 @@ defmodule Manticoresearch.Api.Index do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %Manticoresearch.Model.UpdateResponse{}} on success
+  {:ok, %Manticoresearch.Model.Manticoresearch.Model.UpdateResponse.t{}} on success
   {:error, info} on failure
   """
-  @spec update(Tesla.Env.client, Manticoresearch.Model.UpdateDocumentRequest.t, keyword()) :: {:ok, Manticoresearch.Model.UpdateResponse.t} | {:error, Tesla.Env.t}
+  @spec update(Tesla.Env.client, Manticoresearch.Model.UpdateDocumentRequest.t, keyword()) :: {:ok, Manticoresearch.Model.UpdateResponse.t} | {:ok, Manticoresearch.Model.ErrorResponse.t} | {:error, Tesla.Env.t}
   def update(connection, update_document_request, _opts \\ []) do
     %{}
     |> method(:post)
@@ -144,7 +149,7 @@ defmodule Manticoresearch.Api.Index do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %Manticoresearch.Model.UpdateResponse{}},
+      { 200, %Manticoresearch.Model.UpdateResponse{}}
       { :default, %Manticoresearch.Model.ErrorResponse{}}
     ])
   end

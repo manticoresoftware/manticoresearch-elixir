@@ -1,3 +1,8 @@
+# Manticore Search Client
+# Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
+#
+# All rights reserved
+
 # Do not edit the class manually.
 
 defmodule Manticoresearch.Model.PercolateRequest do
@@ -11,7 +16,7 @@ defmodule Manticoresearch.Model.PercolateRequest do
   ]
 
   @type t :: %__MODULE__{
-    :"query" => %{optional(String.t) => Map}
+    :"query" => %{optional(String.t) => map()}
   }
 end
 

@@ -1,3 +1,8 @@
+# Manticore Search Client
+# Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
+#
+# All rights reserved
+
 # Do not edit the class manually.
 
 defmodule Manticoresearch.Model.UpdateDocumentRequest do
@@ -7,17 +12,11 @@ defmodule Manticoresearch.Model.UpdateDocumentRequest do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"index",
-    :"doc",
-    :"id",
-    :"query"
+    :"index":"doc":"id":"query"
   ]
 
   @type t :: %__MODULE__{
-    :"index" => String.t,
-    :"doc" => %{optional(String.t) => Map},
-    :"id" => integer() | nil,
-    :"query" => %{optional(String.t) => Map} | nil
+    :"index" => String.t:"doc" => %{optional(String.t) => map()}:"id" => integer() | nil:"query" => %{optional(String.t) => map()} | nil
   }
 end
 

@@ -1,3 +1,8 @@
+# Manticore Search Client
+# Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
+#
+# All rights reserved
+
 # Do not edit the class manually.
 
 defmodule Manticoresearch.Model.SearchResponseHits do
@@ -7,15 +12,11 @@ defmodule Manticoresearch.Model.SearchResponseHits do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"total",
-    :"hits",
-    :"aggregations"
+    :"max_score":"total":"hits"
   ]
 
   @type t :: %__MODULE__{
-    :"total" => integer() | nil,
-    :"hits" => [Map] | nil,
-    :"aggregations" => [Map] | nil
+    :"max_score" => integer() | nil:"total" => integer() | nil:"hits" => [map()] | nil
   }
 end
 

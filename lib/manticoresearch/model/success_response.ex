@@ -1,3 +1,8 @@
+# Manticore Search Client
+# Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
+#
+# All rights reserved
+
 # Do not edit the class manually.
 
 defmodule Manticoresearch.Model.SuccessResponse do
@@ -7,19 +12,11 @@ defmodule Manticoresearch.Model.SuccessResponse do
 
   @derive [Poison.Encoder]
   defstruct [
-    :"_index",
-    :"_id",
-    :"created",
-    :"result",
-    :"found"
+    :"_index":"_id":"created":"result":"found"
   ]
 
   @type t :: %__MODULE__{
-    :"_index" => String.t | nil,
-    :"_id" => integer() | nil,
-    :"created" => boolean() | nil,
-    :"result" => String.t | nil,
-    :"found" => boolean() | nil
+    :"_index" => String.t | nil:"_id" => integer() | nil:"created" => boolean() | nil:"result" => String.t | nil:"found" => boolean() | nil
   }
 end
 

@@ -1,3 +1,8 @@
+# Manticore Search Client
+# Copyright (c) 2020-2021, Manticore Software LTD (https://manticoresearch.com)
+#
+# All rights reserved
+
 defmodule Manticoresearch.Api.IndexTest do
   use ExUnit.Case
   doctest Manticoresearch.Api.Index
