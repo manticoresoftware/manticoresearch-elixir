@@ -37,7 +37,7 @@ defmodule Manticoresearch.Api.Index do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %Manticoresearch.Model.BulkResponse{}}
+      { 200, %Manticoresearch.Model.BulkResponse{}},
       { :default, %Manticoresearch.Model.ErrorResponse{}}
     ])
   end
@@ -65,7 +65,7 @@ defmodule Manticoresearch.Api.Index do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %Manticoresearch.Model.DeleteResponse{}}
+      { 200, %Manticoresearch.Model.DeleteResponse{}},
       { :default, %Manticoresearch.Model.ErrorResponse{}}
     ])
   end
@@ -93,7 +93,7 @@ defmodule Manticoresearch.Api.Index do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %Manticoresearch.Model.SuccessResponse{}}
+      { 200, %Manticoresearch.Model.SuccessResponse{}},
       { :default, %Manticoresearch.Model.ErrorResponse{}}
     ])
   end
@@ -121,7 +121,7 @@ defmodule Manticoresearch.Api.Index do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %Manticoresearch.Model.SuccessResponse{}}
+      { 200, %Manticoresearch.Model.SuccessResponse{}},
       { :default, %Manticoresearch.Model.ErrorResponse{}}
     ])
   end
@@ -149,7 +149,7 @@ defmodule Manticoresearch.Api.Index do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %Manticoresearch.Model.UpdateResponse{}}
+      { 200, %Manticoresearch.Model.UpdateResponse{}},
       { :default, %Manticoresearch.Model.ErrorResponse{}}
     ])
   end

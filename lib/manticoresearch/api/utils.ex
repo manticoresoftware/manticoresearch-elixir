@@ -16,14 +16,14 @@ defmodule Manticoresearch.Api.Utils do
 
   @doc """
   Perform SQL requests
-  Run a query in SQL format. Expects a query parameters string that can be in two modes: * Select only query as `query=SELECT * FROM myindex`. The query string MUST be URL encoded * any type of query in format `mode=raw&query=SHOW TABLES`. The string must be as is (no URL encoding) and `mode` must be first. The response object depends on the query executed. In select mode the response has same format as `/search` operation. 
+  Run a query in SQL format. Expects a query string passed through `body` parameter and optional `raw_response` parameter that defines a format of response. `raw_response` can be set to `False` for Select queries only, e.g., `SELECT * FROM myindex` The query string must be URL encoded if `raw_response` parameter is set to False The query string must be as is (no URL encoding) if `raw_response` parameter is set to True or omitted. The response object depends on the query executed. In select mode the response has same format as `/search` operation. 
 
   ## Parameters
 
   - connection (Manticoresearch.Connection): Connection to server
-  - body (String.t): Expects is a query parameters string that can be in two modes:    * Select only query as `query=SELECT * FROM myindex`. The query string MUST be URL encoded    * any type of query in format `mode=raw&query=SHOW TABLES`. The string must be as is (no URL encoding) and `mode` must be first. 
+  - body (String.t): A query parameter string. The query string must be URL encoded if `raw_response` parameter is set to False The query string must be as is (no URL encoding) if `raw_response` parameter is set to True or omitted. 
   - opts (KeywordList): [optional] Optional parameters
-    - :raw_response (boolean()): 
+    - :raw_response (boolean()): Optional parameter, defines a format of response. Can be set to `False` for Select only queries and set to `True` or omitted for any type of queries: 
   ## Returns
 
   {:ok, } on success
@@ -42,7 +42,7 @@ defmodule Manticoresearch.Api.Utils do
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
-      { 200, %{}}
+      { 200, %{}},
       { :default, %Manticoresearch.Model.ErrorResponse{}}
     ])
   end
