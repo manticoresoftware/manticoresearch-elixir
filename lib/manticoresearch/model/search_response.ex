@@ -34,7 +34,7 @@ defimpl Poison.Decoder, for: Manticoresearch.Model.SearchResponse do
   import Manticoresearch.Deserializer
   def decode(value, options) do
     value
-    |> deserialize(:"hits", :struct, Manticoresearch.Model.Manticoresearch.Model.SearchResponseHits.t, options)
+    |> deserialize(:"hits", :struct, Manticoresearch.Model.SearchResponseHits.t, options)
   end
 end
 
