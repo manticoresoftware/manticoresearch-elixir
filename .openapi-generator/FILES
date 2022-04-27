@@ -13,6 +13,7 @@ lib/manticoresearch/model/delete_response.ex
 lib/manticoresearch/model/error_response.ex
 lib/manticoresearch/model/insert_document_request.ex
 lib/manticoresearch/model/percolate_request.ex
+lib/manticoresearch/model/percolate_request_query.ex
 lib/manticoresearch/model/search_request.ex
 lib/manticoresearch/model/search_response.ex
 lib/manticoresearch/model/search_response_hits.ex

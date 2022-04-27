@@ -22,13 +22,15 @@ defmodule Manticoresearch.Model.InsertDocumentRequest do
     :"index" => String.t,
     :"cluster" => String.t | nil,
     :"id" => integer() | nil,
-    :"doc" => %{optional(String.t) => map()}
+    :"doc" => %{optional(String.t) => AnyType}
   }
 end
 
 defimpl Poison.Decoder, for: Manticoresearch.Model.InsertDocumentRequest do
-  def decode(value, _options) do
+  import Manticoresearch.Deserializer
+  def decode(value, options) do
     value
+    |> deserialize(:"doc", :map, Manticoresearch.Model.AnyType, options)
   end
 end
 

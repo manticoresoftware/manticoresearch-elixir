@@ -22,27 +22,32 @@ defmodule Manticoresearch.Model.SearchRequest do
     :"expressions",
     :"highlight",
     :"_source",
+    :"options",
     :"profile"
   ]
 
   @type t :: %__MODULE__{
     :"index" => String.t,
-    :"query" => %{optional(String.t) => map()},
+    :"query" => map(),
     :"limit" => integer() | nil,
     :"offset" => integer() | nil,
     :"max_matches" => integer() | nil,
     :"sort" => [map()] | nil,
-    :"aggs" => %{optional(String.t) => map()} | nil,
+    :"aggs" => %{optional(String.t) => AnyType} | nil,
     :"expressions" => map() | nil,
     :"highlight" => map() | nil,
     :"_source" => [String.t] | nil,
+    :"options" => %{optional(String.t) => AnyType} | nil,
     :"profile" => boolean() | nil
   }
 end
 
 defimpl Poison.Decoder, for: Manticoresearch.Model.SearchRequest do
-  def decode(value, _options) do
+  import Manticoresearch.Deserializer
+  def decode(value, options) do
     value
+    |> deserialize(:"aggs", :map, Manticoresearch.Model.AnyType, options)
+    |> deserialize(:"options", :map, Manticoresearch.Model.AnyType, options)
   end
 end
 

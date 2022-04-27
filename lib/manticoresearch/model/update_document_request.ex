@@ -20,15 +20,18 @@ defmodule Manticoresearch.Model.UpdateDocumentRequest do
 
   @type t :: %__MODULE__{
     :"index" => String.t,
-    :"doc" => %{optional(String.t) => map()},
+    :"doc" => %{optional(String.t) => AnyType},
     :"id" => integer() | nil,
-    :"query" => %{optional(String.t) => map()} | nil
+    :"query" => %{optional(String.t) => AnyType} | nil
   }
 end
 
 defimpl Poison.Decoder, for: Manticoresearch.Model.UpdateDocumentRequest do
-  def decode(value, _options) do
+  import Manticoresearch.Deserializer
+  def decode(value, options) do
     value
+    |> deserialize(:"doc", :map, Manticoresearch.Model.AnyType, options)
+    |> deserialize(:"query", :map, Manticoresearch.Model.AnyType, options)
   end
 end
 

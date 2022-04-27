@@ -16,13 +16,15 @@ defmodule Manticoresearch.Model.PercolateRequest do
   ]
 
   @type t :: %__MODULE__{
-    :"query" => %{optional(String.t) => map()}
+    :"query" => Manticoresearch.Model.PercolateRequestQuery.t
   }
 end
 
 defimpl Poison.Decoder, for: Manticoresearch.Model.PercolateRequest do
-  def decode(value, _options) do
+  import Manticoresearch.Deserializer
+  def decode(value, options) do
     value
+    |> deserialize(:"query", :struct, Manticoresearch.Model.PercolateRequestQuery, options)
   end
 end
 

@@ -17,14 +17,16 @@ defmodule Manticoresearch.Model.ErrorResponse do
   ]
 
   @type t :: %__MODULE__{
-    :"error" => %{optional(String.t) => map()},
+    :"error" => %{optional(String.t) => AnyType},
     :"status" => integer()
   }
 end
 
 defimpl Poison.Decoder, for: Manticoresearch.Model.ErrorResponse do
-  def decode(value, _options) do
+  import Manticoresearch.Deserializer
+  def decode(value, options) do
     value
+    |> deserialize(:"error", :map, Manticoresearch.Model.AnyType, options)
   end
 end
 

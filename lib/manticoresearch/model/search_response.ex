@@ -23,10 +23,10 @@ defmodule Manticoresearch.Model.SearchResponse do
   @type t :: %__MODULE__{
     :"took" => integer() | nil,
     :"timed_out" => boolean() | nil,
-    :"aggregations" => %{optional(String.t) => map()} | nil,
+    :"aggregations" => %{optional(String.t) => AnyType} | nil,
     :"hits" => Manticoresearch.Model.SearchResponseHits.t | nil,
     :"profile" => map() | nil,
-    :"warning" => %{optional(String.t) => map()} | nil
+    :"warning" => %{optional(String.t) => AnyType} | nil
   }
 end
 
@@ -34,7 +34,9 @@ defimpl Poison.Decoder, for: Manticoresearch.Model.SearchResponse do
   import Manticoresearch.Deserializer
   def decode(value, options) do
     value
+    |> deserialize(:"aggregations", :map, Manticoresearch.Model.AnyType, options)
     |> deserialize(:"hits", :struct, Manticoresearch.Model.SearchResponseHits, options)
+    |> deserialize(:"warning", :map, Manticoresearch.Model.AnyType, options)
   end
 end
 
