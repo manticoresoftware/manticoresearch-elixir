@@ -14,12 +14,14 @@ defmodule Manticoresearch.Model.SearchResponseHits do
   defstruct [
     :"max_score",
     :"total",
+    :"total_relation",
     :"hits"
   ]
 
   @type t :: %__MODULE__{
     :"max_score" => integer() | nil,
     :"total" => integer() | nil,
+    :"total_relation" => String.t | nil,
     :"hits" => [map()] | nil
   }
 end
