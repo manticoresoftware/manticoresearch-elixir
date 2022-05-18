@@ -20,4 +20,11 @@ def deps do
 end
 ```
 
+## Requirements
+
+| Manticore Search  | manticoresearch-elixir |     Elixir    |
+| ----------------- | ---------------------- | ------------- |
+| >= 4.2.1          | 2.0.x                  | >= 2.0        |
+| >= 4.0.2          | 1.0.x                  | >= 2.0        |
+
 Documentation available at [HexDocs](https://hexdocs.pm/manticoresearch).
