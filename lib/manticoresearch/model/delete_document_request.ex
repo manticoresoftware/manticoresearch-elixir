@@ -22,7 +22,7 @@ defmodule Manticoresearch.Model.DeleteDocumentRequest do
     :"index" => String.t,
     :"cluster" => String.t | nil,
     :"id" => integer() | nil,
-    :"query" => map() | nil
+    :"query" => Map | nil
   }
 end
 

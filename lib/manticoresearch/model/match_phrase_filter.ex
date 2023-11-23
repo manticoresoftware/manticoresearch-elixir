@@ -5,26 +5,24 @@
 
 # Do not edit the class manually.
 
-defmodule Manticoresearch.Model.BulkResponse do
+defmodule Manticoresearch.Model.MatchPhraseFilter do
   @moduledoc """
-  Success bulk response
+  Query match expression
   """
 
   @derive [Poison.Encoder]
   defstruct [
-    :"items",
-    :"errors",
-    :"error"
+    :"query_phrase",
+    :"query_fields"
   ]
 
   @type t :: %__MODULE__{
-    :"items" => Map | nil,
-    :"errors" => boolean() | nil,
-    :"error" => String.t | nil
+    :"query_phrase" => String.t,
+    :"query_fields" => String.t
   }
 end
 
-defimpl Poison.Decoder, for: Manticoresearch.Model.BulkResponse do
+defimpl Poison.Decoder, for: Manticoresearch.Model.MatchPhraseFilter do
   def decode(value, _options) do
     value
   end

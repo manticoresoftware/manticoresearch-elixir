@@ -5,26 +5,24 @@
 
 # Do not edit the class manually.
 
-defmodule Manticoresearch.Model.BulkResponse do
+defmodule Manticoresearch.Model.GeoDistanceFilterLocationAnchor do
   @moduledoc """
-  Success bulk response
+  Geo pin point object
   """
 
   @derive [Poison.Encoder]
   defstruct [
-    :"items",
-    :"errors",
-    :"error"
+    :"lat",
+    :"lon"
   ]
 
   @type t :: %__MODULE__{
-    :"items" => Map | nil,
-    :"errors" => boolean() | nil,
-    :"error" => String.t | nil
+    :"lat" => float() | nil,
+    :"lon" => float() | nil
   }
 end
 
-defimpl Poison.Decoder, for: Manticoresearch.Model.BulkResponse do
+defimpl Poison.Decoder, for: Manticoresearch.Model.GeoDistanceFilterLocationAnchor do
   def decode(value, _options) do
     value
   end

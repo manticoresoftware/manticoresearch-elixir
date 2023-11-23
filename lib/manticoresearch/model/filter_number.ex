@@ -5,26 +5,26 @@
 
 # Do not edit the class manually.
 
-defmodule Manticoresearch.Model.BulkResponse do
+defmodule Manticoresearch.Model.FilterNumber do
   @moduledoc """
-  Success bulk response
+  Query filter
   """
 
   @derive [Poison.Encoder]
   defstruct [
-    :"items",
-    :"errors",
-    :"error"
+    :"filter_field",
+    :"operation",
+    :"filter_value"
   ]
 
   @type t :: %__MODULE__{
-    :"items" => Map | nil,
-    :"errors" => boolean() | nil,
-    :"error" => String.t | nil
+    :"filter_field" => String.t,
+    :"operation" => String.t,
+    :"filter_value" => float()
   }
 end
 
-defimpl Poison.Decoder, for: Manticoresearch.Model.BulkResponse do
+defimpl Poison.Decoder, for: Manticoresearch.Model.FilterNumber do
   def decode(value, _options) do
     value
   end

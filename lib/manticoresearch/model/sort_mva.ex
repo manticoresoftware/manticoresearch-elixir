@@ -5,26 +5,26 @@
 
 # Do not edit the class manually.
 
-defmodule Manticoresearch.Model.BulkResponse do
+defmodule Manticoresearch.Model.SortMva do
   @moduledoc """
-  Success bulk response
+  Query sort expression for MVA attributes
   """
 
   @derive [Poison.Encoder]
   defstruct [
-    :"items",
-    :"errors",
-    :"error"
+    :"attr",
+    :"order",
+    :"mode"
   ]
 
   @type t :: %__MODULE__{
-    :"items" => Map | nil,
-    :"errors" => boolean() | nil,
-    :"error" => String.t | nil
+    :"attr" => String.t,
+    :"order" => String.t,
+    :"mode" => String.t
   }
 end
 
-defimpl Poison.Decoder, for: Manticoresearch.Model.BulkResponse do
+defimpl Poison.Decoder, for: Manticoresearch.Model.SortMva do
   def decode(value, _options) do
     value
   end

@@ -5,22 +5,22 @@
 
 # Do not edit the class manually.
 
-defmodule Manticoresearch.Model.PercolateRequestQuery do
+defmodule Manticoresearch.Model.QueryFilter do
   @moduledoc """
-  
+  Query string filter
   """
 
   @derive [Poison.Encoder]
   defstruct [
-    :"percolate"
+    :"query_string"
   ]
 
   @type t :: %__MODULE__{
-    :"percolate" => map()
+    :"query_string" => String.t
   }
 end
 
-defimpl Poison.Decoder, for: Manticoresearch.Model.PercolateRequestQuery do
+defimpl Poison.Decoder, for: Manticoresearch.Model.QueryFilter do
   def decode(value, _options) do
     value
   end
