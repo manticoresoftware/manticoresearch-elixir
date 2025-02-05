@@ -22,12 +22,14 @@ def deps do
 end
 ```
 
-## Requirements
+## Compatibility table
 
-| Manticore Search  | manticoresearch-elixir |     Elixir    |
-| ----------------- | ---------------------- | ------------- |
-| >= 6.2.0          | 4.0.0                  | >= 2.0        |
-| >= 4.2.1          | 2.0.x                  | >= 2.0        |
-| >= 4.0.2          | 1.0.x                  | >= 2.0        |
+| **manticoresearch-elixir** | **Manticore Search**  | **Elixir** | **Compatibility**       |
+| ---------------------------| --------------------- | -----------| ------------------------|
+| 4.0.0                      | Worked with 6.2.0     | v1.15.0    | ✅ Fully Compatible     |
+| 2.0.0 to 4.0.0             | 4.2.1 to 6.2.0        | v1.13.0    | ✅ Fully Compatible     |
+| 1.0.0 to 2.0.0             | 4.2.1 to 6.2.0        | v1.13.0    | ⚠️ Partially Compatible |
+| 1.0.0 to 2.0.0             | 4.0.2 to 4.2.1        | v1.12.0    | ✅ Fully Compatible     |
+
 
 Documentation available at [HexDocs](https://hexdocs.pm/manticoresearch).
