@@ -2,6 +2,7 @@
 
 Сlient for Manticore Search. 
 
+❗ WARNING: this is a development version of the client. The latest release's readme is https://github.com/manticoresoftware/manticoresearch-elixir/tree/4.0.0
 
 ### Building
 
@@ -21,12 +22,14 @@ def deps do
 end
 ```
 
-## Requirements
+## Compatibility table
 
-| Manticore Search  | manticoresearch-elixir |     Elixir    |
-| ----------------- | ---------------------- | ------------- |
-| >= 6.2.0          | 4.0.0                  | >= 2.0        |
-| >= 4.2.1          | 2.0.x                  | >= 2.0        |
-| >= 4.0.2          | 1.0.x                  | >= 2.0        |
+| **manticoresearch-elixir** | **Manticore Search**  | **Elixir**    | **Compatibility**       |
+| ---------------------------| --------------------- | --------------| ------------------------|
+| 2.0.0 to 4.0.0             | 6.2.0 or newer        | 2.0 or newer  | ⚠️ Partially Compatible |
+| 2.0.0 to 4.0.0             | 4.2.1 to 6.2.0        | 2.0 or newer  | ✅ Fully Compatible     |
+| 1.0.0 to 2.0.0             | 4.2.1 to 6.2.0        | 2.0 or newer  | ⚠️ Partially Compatible |
+| 1.0.0 to 2.0.0             | 4.0.2 to 4.2.1        | 2.0 or newer  | ✅ Fully Compatible     |
+
 
 Documentation available at [HexDocs](https://hexdocs.pm/manticoresearch).
