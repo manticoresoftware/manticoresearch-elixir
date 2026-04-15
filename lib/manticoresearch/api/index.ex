@@ -35,6 +35,7 @@ defmodule Manticoresearch.Api.Index do
     |> url("/bulk")
     |> add_param(:body, :body, body)
     |> Enum.into([])
+    |> Keyword.put(:headers, [{"content-type", "application/x-ndjson"}])
     |> (&Connection.request(connection, &1)).()
     |> evaluate_response([
       { 200, %Manticoresearch.Model.BulkResponse{}},
